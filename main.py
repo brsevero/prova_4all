@@ -3,14 +3,14 @@ from webdriver_manager.chrome import ChromeDriverManager
 import time
 import unittest
 
-class Desafio1(unittest.TestCase):
+class Desafios(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome(ChromeDriverManager().install())
         self.driver.implicitly_wait(3)
         self.driver.get("https://shopcart-challenge.4all.com/")
         self.driver.maximize_window()
 
-    def teste(self):
+    def test_desafio_1(self):
         time.sleep(1)
         self.driver.find_element_by_css_selector('img.sc-iAyFgw.mBXxg').click()
         time.sleep(1)        
@@ -29,8 +29,37 @@ class Desafio1(unittest.TestCase):
         time.sleep(1)
         self.driver.find_element_by_class_name('close-modal.sc-jqCOkK.ippulb').click()
         time.sleep(1)
-
-
+    
+    def test_desafio2(self):
+        time.sleep(1)
+        self.driver.find_element_by_css_selector('img.sc-iAyFgw.mBXxg').click()
+        time.sleep(1)
+        self.driver.find_element_by_id('category-0').click()
+        time.sleep(1)
+        self.driver.find_element_by_id('add-product-0-btn').click()
+        time.sleep(1)
+        self.driver.find_element_by_id('add-product-1-btn').click()
+        time.sleep(1)
+        self.driver.find_element_by_id('add-product-2-btn').click()
+        time.sleep(1)
+        self.driver.find_element_by_css_selector('img.sc-iAyFgw.mBXxg').click()
+        time.sleep(1)
+        self.driver.find_element_by_id('category-all').click()
+        time.sleep(1)
+        self.driver.find_element_by_id('add-product-3-btn').click()
+        time.sleep(1)
+        self.driver.find_element_by_class_name('sc-kGXeez.brMovy').click()
+        time.sleep(1)
+        for i in range(9):
+            self.driver.find_element_by_id('add-product-3-qtd').click()
+            time.sleep(1)
+        for i in range(5):
+            self.driver.find_element_by_id('remove-product-3-qtd').click()
+            time.sleep(1)
+        self.driver.find_element_by_id('finish-checkout-button').click()
+        time.sleep(1)
+        self.driver.find_element_by_class_name('close-modal.sc-jqCOkK.ippulb').click()
+        time.sleep(1)
 
     def tearDown(self):
         self.driver.close
